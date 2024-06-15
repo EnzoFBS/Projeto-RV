@@ -3,6 +3,8 @@ import { config } from "dotenv";
 import { GetProteinsController } from "./controllers/get-proteins/get-proteins";
 import { DbMongoGetProteinsRepository } from "./repositories/get-proteins/mongo-get-proteins";
 import { MongoClient } from "./db/mongo";
+import { DbMongoGetBrothsRepository } from "./repositories/get-broths/mongo-get-broths";
+import { GetBrothsController } from "./controllers/get-broths/get-broths";
 
 const main = async () => {
   config();
@@ -18,6 +20,15 @@ const main = async () => {
     );
 
     const { body, statusCode } = await getProteinsController.handle();
+    res.send(body).status(statusCode);
+  });
+  app.get("/broths", async (req, res) => {
+    const mongoGetBrothsRepository = new DbMongoGetBrothsRepository();
+    const getBrothsController = new GetBrothsController(
+      mongoGetBrothsRepository
+    );
+
+    const { body, statusCode } = await getBrothsController.handle();
     res.send(body).status(statusCode);
   });
 

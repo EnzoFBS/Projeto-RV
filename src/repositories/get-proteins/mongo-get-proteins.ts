@@ -1,16 +1,17 @@
 import { IGetProteinsRepository } from "../../controllers/get-proteins/protocols";
+import { MongoClient } from "../../db/mongo";
 import { Protein } from "../../models/protein";
 
-export class DbMongoGetProteinsRepository implements IGetProteinsRepository{
-    async getProteins(): Promise<Protein[]> {
-        return [
-            {
-                "imageInactive": "https://tech.redventures.com.br/icons/pork/inactive.svg",
-                "imageActive": "https://tech.redventures.com.br/icons/pork/active.svg",
-                "name": "Chasu",
-                "description": "A sliced flavourful pork meat with a selection of season vegetables.",
-                "price": 10
-              }
-        ]
-    }
+export class DbMongoGetProteinsRepository implements IGetProteinsRepository {
+  async getProteins(): Promise<Protein[]> {
+    const proteins = await MongoClient.db
+      .collection<Omit<Protein, "id">>("proteins")
+      .find({})
+      .toArray();
+
+    return proteins.map(({ _id, ...rest }) => ({
+      ...rest,
+      id: _id.toString(),
+    }));
+  }
 }

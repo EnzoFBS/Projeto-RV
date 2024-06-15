@@ -14,7 +14,6 @@ export class GetProteinsController implements IGetProteinsController {
         body: proteins,
       };
     } catch (error) {
-      // Note que aqui estamos retornando um array vazio de Protein em caso de erro
       return {
         statusCode: HttpStatusCode.SERVER_ERROR,
         body: [],

@@ -5,7 +5,7 @@ import {
 } from "../../controllers/create-order/protocols";
 import { Order } from "../../models/order";
 
-export class MongoCreateOrder implements ICreateOrderRepository {
+export class MongoCreateOrderRepository implements ICreateOrderRepository {
   async createOrder(params: CreateOrderParams): Promise<Order> {
     const { insertedId } = await MongoClient.db
       .collection("orders")

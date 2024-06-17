@@ -7,7 +7,7 @@ import { DbMongoGetBrothsRepository } from "./repositories/get-broths/mongo-get-
 import { GetBrothsController } from "./controllers/get-broths/get-broths";
 import { MongoCreateOrderRepository } from "./repositories/create-order/mongo-create-order";
 import { CreateOrderController } from "./controllers/create-order/create-order";
-import { validateApiKey } from "../src/auth-api-key";
+import { validateApiKey } from "./middleware/auth-api-key";
 
 const main = async () => {
   config();

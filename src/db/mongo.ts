@@ -10,7 +10,7 @@ export const MongoClient = {
     const password = process.env.MONGODB_PASSWORD;
 
     const client = new Mongo(url, { auth: { username, password } });
-    const db = client.db("proteins-db");
+    const db = client.db("ramen-db");
 
     this.client = client;
     this.db = db;

@@ -28,6 +28,7 @@ export class CreateOrderController implements ICreateOrderController {
         body: order,
       };
     } catch (error) {
+      console.log(error);
       return {
         statusCode: 500,
         body: "Somtthing went wrong",

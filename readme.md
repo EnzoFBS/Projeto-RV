@@ -25,7 +25,7 @@ Este projeto segue boas práticas de desenvolvimento de software, incluindo:
 
 ## Variáveis de ambiente
 
-Não esqueça de configurar as variáveis de ambiente conformeo examplo
+Não esqueça de configurar as variáveis de ambiente conforme exemplo
 
 ### Deploy
 

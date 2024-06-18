@@ -12,7 +12,7 @@ export const validateApiKey = (
   const validApiKey = process.env.API_KEY;
 
   if (!apiKey || apiKey !== validApiKey) {
-    return res.status(401).json({ error: "Unauthorized" });
+    return res.status(403).json({ error: "x-api-key header missing" });
   }
 
   next();

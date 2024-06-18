@@ -9,49 +9,54 @@ config();
 const proteins: Omit<Protein, "id">[] = [
   {
     name: "Chasu",
-    description: "A sliced flavourful pork meat with a selection of season vegetables.",
-    imageActive: "ChasuActive.svg",
-    imageInactive: "ChasuInactive.svg",
+    description:
+      "A sliced flavourful pork meat with a selection of season vegetables.",
+    imageActive: "https://tech.redventures.com.br/icons/Chasu/active.svg",
+    imageInactive: "https://tech.redventures.com.br/icons/Chasu/active.svg",
     price: 10,
   },
   {
     name: "Yasai Vegetarian",
-    description: "A delicious vegetarian lamen with a selection of season vegetables.",
-    imageActive: "YasaiVegetarianActive.svg",
-    imageInactive: "YasaiVegetarianInactive.svg",
+    description:
+      "A delicious vegetarian lamen with a selection of season vegetables.",
+    imageActive:
+      "https://tech.redventures.com.br/icons/YasaiVegetarianInactive/active.svg",
+    imageInactive:
+      "https://tech.redventures.com.br/icons/YasaiVegetarianInactive/active.svg",
     price: 10,
   },
   {
     name: "Karaague",
-    description: "Three units of fried chicken, moyashi, ajitama egg and other vegetables.",
-    imageActive: "KaraagueActive.svg",
-    imageInactive: "KaraagueInactive.svg",
+    description:
+      "Three units of fried chicken, moyashi, ajitama egg and other vegetables.",
+    imageActive: "https://tech.redventures.com.br/icons/Karaague/active.svg",
+    imageInactive: "https://tech.redventures.com.br/icons/Karaague/active.svg",
     price: 12,
   },
 ];
 
 const broths: Omit<Broth, "id">[] = [
   {
-    name: 'Salt',
-    description: 'Simple like the seawater, nothing more',
-    imageActive: 'SaltActive.svg',
-    imageInactive: 'SaltInactive.svg',
-    price: 10
+    name: "Salt",
+    description: "Simple like the seawater, nothing more",
+    imageActive: "https://tech.redventures.com.br/icons/salt/active.svg",
+    imageInactive: "https://tech.redventures.com.br/icons/salt/active.svg",
+    price: 10,
   },
   {
-    name: 'Shoyu',
-    description: 'The good old and traditional soy sauce',
-    imageActive: 'ShoyuActive.svg',
-    imageInactive: 'ShoyuInactive.svg',
-    price: 10
+    name: "Shoyu",
+    description: "The good old and traditional soy sauce",
+    imageActive: "https://tech.redventures.com.br/icons/shoyu/active.svg",
+    imageInactive: "https://tech.redventures.com.br/icons/shoyu/active.svg",
+    price: 10,
   },
   {
-    name: 'Miso',
-    description: 'Paste made of fermented soybeans',
-    imageActive: 'MisoActive.svg',
-    imageInactive: 'MisoInactive.svg',
-    price: 12
-  }
+    name: "Miso",
+    description: "Paste made of fermented soybeans",
+    imageActive: "https://tech.redventures.com.br/icons/Miso/active.svg",
+    imageInactive: "https://tech.redventures.com.br/icons/Miso/active.svg",
+    price: 12,
+  },
 ];
 
 async function seed() {
@@ -60,7 +65,7 @@ async function seed() {
     await MongoClient.connect();
 
     const db = MongoClient.db;
-    
+
     // Coleção de proteínas
     const proteinsCollection = db.collection<Omit<Protein, "id">>("proteins");
     await proteinsCollection.deleteMany({});

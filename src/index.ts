@@ -46,7 +46,8 @@ const main = async () => {
     const { body, statusCode } = await createOrderController.handle({
       body: req.body,
     });
-    res.send(body).status(statusCode);
+
+    res.status(statusCode).send(body);
   });
 
   const port = process.env.PORT || 8000;

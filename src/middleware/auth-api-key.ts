@@ -8,7 +8,7 @@ export const validateApiKey = (
   res: Response,
   next: NextFunction
 ) => {
-  const apiKey = req.header("x-api-key");
+  const apiKey = req.header("X-Api-Key");
   const validApiKey = process.env.API_KEY;
 
   if (!apiKey || apiKey !== validApiKey) {
